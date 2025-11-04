@@ -1,0 +1,59 @@
+	{
+        "items": [
+          {
+            "imageUrl": "http://tmpfiles.org/dl/6655715/1762227932.png",
+            "text": "Elias"
+          },
+          {
+            "imageUrl": "https://tmpfiles.org/dl/6655939/1762227983.png",
+            "text": "Nyra"
+          },
+		  {
+			"imageUrl": "https://tmpfiles.org/dl/6656059/scene.jpg",
+            "text": "Scene"
+		  }
+        ]
+      }
+
+      
+
+Animation Principles
+Core: Squash & Stretch (subtle on breath/exhalation) / Dynamic Timing (slow, deliberate pacing) / Smear Frames (minimal—reserved for snow gusts) / Follow-Through (scarf, hair, falling snow) / Overlapping Action (coat tails, scarf, snow settling)
+Style: Clay motion texture with matte, tactile surfaces; slight frame-by-frame grain to emulate handmade stop-motion
+Environment: Snow compresses underfoot with visible displacement; pine boughs sway and shed snow in gentle arcs; cold mist clings to ground and breath
+00:00 → 00:00 — Setup Frame
+Action: Alignment only based on style sheets — neutral pose, balanced composition
+Camera: Fixed, centered
+Notes: Used as reference input to stabilize character models, lighting, props, and environmental context
+00:01 → 00:04 — First Step Beat
+Shot: Medium tracking shot from behind, following as Elias lifts a boot from deep snow
+Action: Slow, laborious step—snow clings then releases with subtle squash on foot impact; scarf and coat tails lag behind
+Camera: Gentle forward dolly with micro-jitter to mimic handheld clay-motion feel
+Animation: Overlapping action on scarf and hair; breath mist pulses with each exhale using soft smear
+VFX: Snow particles displace upward on step; fine flakes swirl in moonlight with parallax drift
+Notes: Emphasize weight and isolation—every movement feels deliberate, heavy, solitary
+00:04 → 00:08 — Gust Interlude
+Shot: Close-up on Elias’s face as a cold wind gust hits
+Action: Hair and scarf whip briefly; eyes narrow but remain fixed ahead; breath mist thickens momentarily
+Camera: Slight elastic push-in with subtle frame shake
+VFX: Swirling snowflakes accelerate through foreground; pine needles tremble in background
+Notes: Rune tattoos subtly shimmer under moonlight for one frame only—barely perceptible
+00:08 → 00:12 — Forest Passage
+Shot: Side dolly with parallax layers—foreground pines slide past, midground Elias trudges, background fades into silver-blue haze
+Action: Steady walking rhythm; coat sways, snow crunches with each step (implied through motion, not sound)
+Camera: Smooth lateral movement with clay-textured depth; slight focus shift between layers
+Animation: Continuous overlapping motion—scarf flutter, snow settling off shoulders, breath rhythm
+VFX: Long shadows stretch from moon; snow glints with micro-sparkles on wind-blown ridges
+Notes: Environment breathes with him—snow falls in sync with his pace, as if the forest watches
+00:12 → 00:15 — Moon Gaze Pause
+Shot: Tight profile close-up as Elias halts and lifts his gaze to the moon
+Action: Head tilts slowly; eyes reflect moonlight, exhaustion and resolve intermingled
+Camera: Static, shallow depth of field—moon blurred but luminous in background
+Animation: Subtle eye blink with slight squash; scarf settles into stillness
+VFX: Breath mist curls upward, catching moonlight like faint vapor trails
+Notes: Moment of quiet introspection—no wind, no falling snow, only silence and cold light
+🎧 Audio
+BGM: Muted for clarity
+Ambience: Distant wind through high pines, muffled snowfall, faint creak of frozen branches
+SFX: Crunch of snow under boots, soft rustle of wool coat, whisper of scarf in breeze
+Dialogue: None
