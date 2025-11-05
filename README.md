@@ -41,3 +41,14 @@ curl -X POST \
 ```
 
 `output.png` will contain the generated composite.
+
+## Deploying to Render
+
+1. Push this repository to your own Git provider (GitHub, GitLab, or Bitbucket).
+2. In the Render dashboard, create a **Web Service** and connect it to the repository.
+3. When prompted, set the following values:
+   - **Environment**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Environment Variable**: `PYTHON_VERSION=3.11`
+4. Click **Create Web Service**; Render will install dependencies, build the service, and expose a public URL once the deployment succeeds.
