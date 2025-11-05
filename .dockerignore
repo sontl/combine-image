@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.so
+*.log
+.git
+.github
+.venv
+.env
+README.md
+sample.txt
