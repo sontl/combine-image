@@ -57,3 +57,70 @@ BGM: Muted for clarity
 Ambience: Distant wind through high pines, muffled snowfall, faint creak of frozen branches
 SFX: Crunch of snow under boots, soft rustle of wool coat, whisper of scarf in breeze
 Dialogue: None
+
+
+
+-----
+
+Location:
+Snow-covered pine forest under a cold, silver moon.
+The wind carries faint echoes through the frozen air. Every branch glitters with frost.
+
+Style:
+Animation in the style of Makoto Shinkai × Ufotable — painterly background depth, volumetric moonlight, soft focus transitions, and delicate particle motion.
+Subtle lens bloom and slow dolly movement to create dreamlike immersion.
+
+Tone:
+Melancholic, ethereal, intimate.
+
+Lighting:
+Pale moonlight filtering through the trees, forming soft halos of cold blue light.
+Snow reflects faintly; drifting mist adds parallax depth.
+
+Color Palette:
+Moonlight silver × frost blue × mist white × shadowed indigo × pale lavender glow.
+
+VFX:
+Volumetric fog, drifting frost particles, breath mist, shimmering air distortion.
+
+🌙 Action Timeline
+
+00:00:00 → 00:00:00 — Setup Frame
+Action: Alignment only based on style sheets — Nyra and Elias in neutral pose, balanced composition at mid-depth of forest clearing.
+Camera: Fixed, centered.
+Notes: Used as reference input to stabilize character models, lighting temperature (4000K cold moonlight), snow density, and mist layer movement speed.
+
+00:00:01 → 00:03:00 — Whispering Pines
+Action: Wide shot of the forest. Wind brushes the pine needles; fine snowflakes drift downward.
+Camera: Slow dolly-in through mist, lens flare softly blooming as the moon peeks through branches.
+Notes: Background ambience — faint creak of trees, low wind hum.
+
+00:03 → 00:05 — The Shimmer Appears
+Action: Particles of frost begin to gather mid-air, spiraling like breath made visible. The air refracts, light bending slightly.
+Camera: Static, shallow depth of field — focus shifts from foreground branches to a glowing silhouette in the mist.
+Notes: First emergence of Nyra’s presence through volumetric lighting cue.
+
+00:05 → 00:07 — Nyra Materializes
+Action: Her figure coalesces — flowing hair, translucent gown, the shimmer of her skin like crystalized air.
+Camera: Crane down from above to follow her descent as she hovers slightly before touching the snow.
+Notes: Add subtle “ice crackle” sound layered with airy chime tone.
+
+00:07 → 00:09 — The Breath of Winter
+Action: Nyra exhales softly; mist drifts from her lips, scattering into light. Her eyes open, glowing with faint melancholy.
+Camera: Close-up; soft focus pull from her lips to her eyes.
+Notes: Breath particle sim at low opacity (30%), smooth fade.
+
+00:09 → 00:11 — Elias Noticed
+Action: Cut to Elias. His scarf flutters; his breath halts mid-air as he stares forward.
+Camera: Over-shoulder tracking shot from behind Elias, revealing Nyra framed in moonlight.
+Notes: Lighting adjustment — warm fill on Elias’s side (subtle contrast to Nyra’s cool tone).
+
+00:11 → 00:13 — The Reach
+Action: Nyra glides forward without sound, hand extended toward Elias but stopping inches before contact.
+Camera: Slow dolly inward, slight orbit movement. Focus depth adjusts dynamically as her hand nears his face.
+Notes: Time slows; snow motion eased to 20% speed for suspended effect.
+
+00:13 → 00:15 — Frozen Stillness
+Action: Two-shot composition. Nyra’s fingertips shimmer faintly in front of Elias’s cheek. The forest around them falls silent.
+Camera: Locked-on lens zoom; wide aperture creates glowing bokeh from falling snow.
+Notes: Scene ends on a soft light flare and audio fade-out to silence.

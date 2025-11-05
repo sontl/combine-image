@@ -13,6 +13,10 @@ from pydantic import AnyHttpUrl, BaseModel, Field
 
 app = FastAPI(title="Image Combination API")
 
+TARGET_WIDTH = 2560
+TARGET_HEIGHT = 1408
+RESAMPLE_LANCZOS = getattr(Image, "Resampling", Image).LANCZOS
+
 
 class ImageTextItem(BaseModel):
     imageUrl: AnyHttpUrl = Field(..., description="HTTP URL pointing to the image to download")
@@ -166,6 +170,17 @@ async def combine_images(payload: CombineRequest) -> Response:
                 ],
                 outline="black",
             )
+
+    if canvas.size != (TARGET_WIDTH, TARGET_HEIGHT):
+        scale_factor = min(TARGET_WIDTH / canvas.width, TARGET_HEIGHT / canvas.height)
+        scaled_width = max(1, min(TARGET_WIDTH, int(canvas.width * scale_factor)))
+        scaled_height = max(1, min(TARGET_HEIGHT, int(canvas.height * scale_factor)))
+        scaled_canvas = canvas.resize((scaled_width, scaled_height), resample=RESAMPLE_LANCZOS)
+        final_canvas = Image.new("RGB", (TARGET_WIDTH, TARGET_HEIGHT), color="white")
+        paste_x = (TARGET_WIDTH - scaled_width) // 2
+        paste_y = (TARGET_HEIGHT - scaled_height) // 2
+        final_canvas.paste(scaled_canvas, (paste_x, paste_y))
+        canvas = final_canvas
 
     output = BytesIO()
     # PNG compression is lossless - compress_level 6 is good balance of speed/size
