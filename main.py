@@ -27,6 +27,17 @@ class CombineRequest(BaseModel):
     items: List[ImageTextItem]
 
 
+class InsertTextRequest(BaseModel):
+    imageUrl: AnyHttpUrl = Field(..., description="HTTP URL pointing to the image")
+    text: str = Field(..., min_length=1, description="Text to insert into the image")
+    x: int = Field(default=0, description="X coordinate for text placement")
+    y: int = Field(default=0, description="Y coordinate for text placement")
+    font_size: int = Field(default=40, ge=1, le=500, description="Font size in pixels")
+    color: str = Field(default="black", description="Text color (name or hex)")
+    border_color: str = Field(default="white", description="Border color (name or hex)")
+    border_width: int = Field(default=2, ge=0, le=20, description="Border width in pixels")
+
+
 async def fetch_image(client: httpx.AsyncClient, url: str) -> Image.Image:
     try:
         response = await client.get(url)
@@ -59,6 +70,45 @@ def get_font(size: int) -> ImageFont.ImageFont:
             continue
 
     return ImageFont.load_default()
+
+
+def insert_text_into_image(
+    image: Image.Image,
+    text: str,
+    position: tuple[int, int] = (0, 0),
+    font_size: int = 40,
+    color: str = "black",
+    border_color: str = "white",
+    border_width: int = 2,
+) -> Image.Image:
+    """Insert text into an image at the specified position with optional border.
+    
+    Args:
+        image: PIL Image to draw text on
+        text: Text to insert
+        position: (x, y) coordinates for text placement
+        font_size: Size of the font
+        color: Text color (name or hex)
+        border_color: Border color (name or hex)
+        border_width: Border width in pixels
+    
+    Returns:
+        New image with text inserted
+    """
+    result = image.copy().convert("RGBA")
+    font = get_font(font_size)
+    draw = ImageDraw.Draw(result)
+    x, y = position
+    
+    # Draw border by drawing text offset in all directions
+    for adj_x in range(-border_width, border_width + 1):
+        for adj_y in range(-border_width, border_width + 1):
+            if adj_x != 0 or adj_y != 0:
+                draw.text((x + adj_x, y + adj_y), text, fill=border_color, font=font)
+    
+    # Draw main text on top
+    draw.text(position, text, fill=color, font=font)
+    return result
 
 
 def render_text_image(text: str, font: ImageFont.ImageFont) -> tuple[Image.Image, int, int]:
@@ -185,6 +235,29 @@ async def combine_images(payload: CombineRequest) -> Response:
     output = BytesIO()
     # PNG compression is lossless - compress_level 6 is good balance of speed/size
     canvas.save(output, format="PNG", optimize=True, compress_level=6)
+    output.seek(0)
+
+    return Response(content=output.getvalue(), media_type="image/png")
+
+
+@app.post("/insert-text", response_class=Response)
+async def insert_text(payload: InsertTextRequest) -> Response:
+    """Insert text into an image and return the result as PNG."""
+    async with httpx.AsyncClient(timeout=httpx.Timeout(10.0, read=20.0)) as client:
+        image = await fetch_image(client, str(payload.imageUrl))
+
+    result = insert_text_into_image(
+        image,
+        payload.text,
+        position=(payload.x, payload.y),
+        font_size=payload.font_size,
+        color=payload.color,
+        border_color=payload.border_color,
+        border_width=payload.border_width,
+    )
+
+    output = BytesIO()
+    result.convert("RGB").save(output, format="PNG", optimize=True, compress_level=6)
     output.seek(0)
 
     return Response(content=output.getvalue(), media_type="image/png")
